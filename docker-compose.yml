@@ -23,13 +23,12 @@ services:
       - 5433:5432
       
   sales-db:
-    image: tutum/mongodb
+    image: mongo:latest
     container_name: sales-db
     restart: always
     environment:
-      - MONGODB_USER=admin
-      - MONGODB_DATABASE=sales-db
-      - MONGODB_PASS=123456
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=123456
     ports:
       - 27017:27017
       - 28017:28017
@@ -42,21 +41,21 @@ services:
     ports:
       - 8080:8080
 
-  product-api:
-    build: './product-api'
-    container_name: product-api
-    environment:
-      - PORT=8081
-    ports:
-      - 8081:8081
+  # product-api:
+  #   build: './product-api'
+  #   container_name: product-api
+  #   environment:
+  #     - PORT=8081
+  #   ports:
+  #     - 8081:8081
 
-  sales-api:
-    build: './sales-api'
-    container_name: sales-api
-    environment:
-      - PORT=8082
-    ports:
-      - 8082:8082
+  # sales-api:
+  #   build: './sales-api'
+  #   container_name: sales-api
+  #   environment:
+  #     - PORT=8082
+  #   ports:
+  #     - 8082:8082
       
   sales_rabbit:
     image: rabbitmq:3-management

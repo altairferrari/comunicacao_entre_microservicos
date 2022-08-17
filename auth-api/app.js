@@ -6,7 +6,7 @@ import checkToken from "./src/config/auth/checkToken.js";
 
 const app = express();
 const env = process.env;
-const PORT = env.PORT || 8181;
+const PORT = env.PORT || 8180;
 
 db.createInitialData();
 
@@ -23,5 +23,5 @@ app.use(express.json());
 app.use(userRoutes);
 
 app.listen(PORT, () => {
-    console.info(`Server started successfullyat port ${PORT}`);
+    console.info(`Server started successfull yat port ${PORT}`);
 })

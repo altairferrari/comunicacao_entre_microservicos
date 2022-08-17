@@ -5,13 +5,14 @@ spring:
 
   main:
     allow-bean-definition-overriding: true
+    allow-circular-references: true
 
   application:
     name: product-api
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:product-db}
+    url: jdbc:postgresql://${DB_HOST:127.0.0.1}:${DB_PORT:5433}/${DB_NAME:product-db}
     username: ${DB_USER:admin}
     password: ${DB_PASSWORD:123456}
     initialization-mode: always
@@ -22,7 +23,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
       format_sql: true
     show_sql: true
     properties:

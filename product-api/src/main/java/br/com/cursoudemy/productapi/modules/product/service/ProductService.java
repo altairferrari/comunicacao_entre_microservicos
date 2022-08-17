@@ -180,6 +180,7 @@ public class ProductService {
         }
     }
 
+    @Transactional
     private void validateStockUpdateData(ProductStockDTO product) {
         if (isEmpty(product)
                 || isEmpty(product.getSalesId())) {
